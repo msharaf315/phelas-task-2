@@ -1,0 +1,15 @@
+services:
+  api-server:
+    build: ./Phelas-Task-server
+    ports:
+      - "80:80"
+    networks:
+      - phelas-task-2
+  extract-script:
+    build: .
+    networks:
+    - phelas-task-2
+    depends_on:
+      - api-server
+networks:
+  phelas-task-2: {}
